@@ -64,7 +64,13 @@ public class Program : IWebApplicationSetup{
         // ***
 
         // GET endpoints
-        app.MapGet("/hi", () => "Hello World!");
+        app.MapGet("/get", async context =>
+        {
+            var numbers = Util.ReadFromCSV();
+            var response = new { NumbersFromCSV = numbers };
+            await context.Response.WriteAsJsonAsync(response);
+        });
+
 
         //POST endpoints
         app.MapPost("/post", Post.ListOfIntegers);

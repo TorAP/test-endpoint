@@ -49,6 +49,29 @@ public static class Util{
             }
     }
 
+    public static List<int> ReadFromCSV(){
+        
+        var csvFilePath = "data/sorted_numbers.csv";
+        //TODO: Move out to csv paths are the same
+    
+        if (!File.Exists(csvFilePath))
+        {
+        Console.WriteLine("File does not exist.");
+        return new List<int>();
+        }
+
+        /// using LINQ *** FROM https://learn.microsoft.com/en-us/dotnet/csharp/linq/how-to-query-files-and-directories
+        return File.ReadAllLines(csvFilePath)
+                .SelectMany(line => line.Split(','))
+                .Where(value => int.TryParse(value, out _))
+                .Select(int.Parse)
+                .ToList();
+                
+        /// ***
+
+
+    }
+
 
 
 
