@@ -6,9 +6,14 @@ Two endpoints are exposed: local/get and local/post. /post allows the user to in
 which is then being sorted, while /get returns all the sorted inputs. 
 
 ### Done
-- 2 endpoint
+- 2 endpoints
 - bubble-sort
 
 ### Missing
 - A better sorting algorithm
-- Swap .csv with a database
+- decouple
+    - Swap .csv with a database
+    - Unit testing 
+
+### Bugs
+- /get is concatenated into 1 list
