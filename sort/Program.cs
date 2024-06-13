@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Builder;
 
 public interface IDatabase 
 {
+    
 }
 
 public interface IWebApplicationSetup
@@ -19,12 +20,13 @@ public interface IWebApplicationSetup
 /// <param name="item">Handles setup,configuration and run</param>
 public class Program : IWebApplicationSetup{    
     
+    // TODO: Implement to accept stub - better for testing
     public Program()
     {   
     }
 
     /// <summary>
-    /// Method <c>Run</c> is the method logic .
+    /// Method <c>Run</c> is the method logic.
     /// </summary>
     public void Run() 
     {
@@ -36,7 +38,7 @@ public class Program : IWebApplicationSetup{
     /// </summary>
     public void Configure(WebApplicationBuilder builder)
     {
-        //boilerplate 
+        // boilerplate 
         var app = builder.Build();
 
          //*** HTML-FORM GENERATED USING CHATGPT
@@ -71,8 +73,7 @@ public class Program : IWebApplicationSetup{
             await context.Response.WriteAsJsonAsync(response);
         });
 
-
-        //POST endpoints
+        // POST endpoints
         app.MapPost("/post", Post.ListOfIntegers);
 
 
@@ -81,7 +82,7 @@ public class Program : IWebApplicationSetup{
     }
 
     /// <summary>
-    /// Method <c>Main</c>  is to the entry-point to the application .
+    /// Method <c>Main</c>  is to the entry-point to the application.
     /// </summary>
     public static void Main(string[] args) {
 
