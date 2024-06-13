@@ -1,4 +1,4 @@
-namespace Sort;
+namespace Sort.Endpoints;
 
 
 /// <summary>
@@ -11,6 +11,9 @@ namespace Sort;
     public List<int> Numbers { get; set; }
 }
 
+/// <summary>
+/// Class <c>Post</c>  returns sorted user input.
+/// </summary>
 public static class Post {
 
     public static async Task ListOfIntegers(HttpContext context)

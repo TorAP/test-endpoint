@@ -3,10 +3,21 @@ namespace Sort;
 using Microsoft.AspNetCore.Builder;
 
 
-public interface IDatabase 
-{
-    
+//TODO:
+
+// public interface IDatabase {}
+
+public interface IInputReader{
+    List<int> ReadInput();
 }
+
+public class UserInputReader : IInputReader {
+    public List<int> ReadInput() {
+
+        return new List<int> { };
+        }
+    }
+
 
 public interface IWebApplicationSetup
     {
@@ -19,10 +30,17 @@ public interface IWebApplicationSetup
 /// </summary>
 /// <param name="item">Handles setup,configuration and run</param>
 public class Program : IWebApplicationSetup{    
+    // private readonly UserInputReader _inputReader;
+
+
+
+
     
     // TODO: Implement to accept stub - better for testing
     public Program()
     {   
+        //  _inputReader = new UserInputReader();
+
     }
 
     /// <summary>
@@ -65,6 +83,7 @@ public class Program : IWebApplicationSetup{
             });
         // ***
 
+        //TODO: Allign with post logic
         // GET endpoints
         app.MapGet("/get", async context =>
         {
@@ -74,7 +93,7 @@ public class Program : IWebApplicationSetup{
         });
 
         // POST endpoints
-        app.MapPost("/post", Post.ListOfIntegers);
+        app.MapPost("/post", Endpoints.Post.ListOfIntegers);
 
 
         // Run the web application, start listening for incoming requests
