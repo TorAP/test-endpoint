@@ -34,14 +34,14 @@ public static class Util{
     }
 
     public static void QuickSort() {
-        //TODO: Implement quicksort
+        // TODO: Implement quicksort
 
     }
     public static void SaveToCSV(NumberList numberList) {
-            //TODO: add to database instead and support other formats
+            // TODO: add to database instead and support other formats
             
             var csvFilePath = "data/sorted_numbers.csv";
-            //check if file exists and append
+            // check if file exists and append
             using (var writer = new StreamWriter(csvFilePath, append: true))
             
             {
@@ -52,7 +52,7 @@ public static class Util{
     public static List<int> ReadFromCSV(){
         
         var csvFilePath = "data/sorted_numbers.csv";
-        //TODO: Move out to csv paths are the same
+        // TODO: Move out to csv paths are the same
     
         if (!File.Exists(csvFilePath))
         {
@@ -63,8 +63,8 @@ public static class Util{
         /// using LINQ *** FROM https://learn.microsoft.com/en-us/dotnet/csharp/linq/how-to-query-files-and-directories
         return File.ReadAllLines(csvFilePath)
                 .SelectMany(line => line.Split(','))
-                .Where(value => int.TryParse(value, out _))
-                .Select(int.Parse)
+                    .Where(value => int.TryParse(value, out _))
+                    .Select(int.Parse)
                 .ToList();
                 
         /// ***
